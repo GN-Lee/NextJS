@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type Profile = {
   image: string;
@@ -7,13 +8,15 @@ type Profile = {
 const Profile = ({ image, name }: Profile) => {
   return (
     <div>
-      <h3>{name}</h3>
-      <Image
-        width={96}
-        height={96}
-        src={`http://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion/${image}`}
-        alt={name}
-      />
+      <Link href={`/detail/${name}`}>
+        <p>{name}</p>
+        <Image
+          width={96}
+          height={96}
+          src={`http://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion/${image}`}
+          alt={name}
+        />
+      </Link>
     </div>
   );
 };
